@@ -68,6 +68,7 @@ class PostDetail(View):
 
 
 class Search(View):
+    """Поиск"""
     def get(self, request):
         title = request.GET.get("search_name")
         if Post.objects.filter(title__icontains=title).exists():
