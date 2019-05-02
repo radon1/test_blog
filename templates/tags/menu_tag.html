@@ -1,0 +1,17 @@
+<ul>
+    <li {% if style %} class="hor" {% endif %}>
+        <a href="/">Главная</a>
+    </li>
+    <li {% if style %} class="hor" {% endif %}>
+        <a href="{% url 'new' %}">Новости</a>
+    </li>
+    <li {% if style %} class="hor" {% endif %}>
+        <a href="{% url 'category_list' %}">Категории</a>
+    </li>
+</ul>
+
+<style>
+    .hor {
+        display: inline;
+    }
+</style>

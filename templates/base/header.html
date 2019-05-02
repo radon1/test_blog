@@ -1,0 +1,11 @@
+{% load news_tags %}
+{% menu style=True %}
+<form action="{% url 'search' %}" method="get">
+    {{ search_form }}
+    <button type="submit">Отправить</button>
+</form>
+{% if user.username %}
+    {{ user.username }}
+{% endif %}
+
+

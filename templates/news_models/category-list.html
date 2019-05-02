@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for category in categories %}
+        <p>
+            <a href="{% url 'post_list_category' category=category.slug %}">
+                {{ category.name }}
+            </a>
+        </p>
+    {% endfor %}
+{% endblock content %}

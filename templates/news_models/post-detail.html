@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ new.title }}</h1>
+    {% if new.image %}
+        <img src="{{ new.image.url }}" class="img-post-detail">
+    {% endif %}
+    <p>{{ new.text }}</p>
+    <p> Количество просмотров: {{ new.count }}</p>
+    <br>{{ user.username }}
+    <hr>
+    <p>Комментарии</p>
+    {% if user.is_authenticated %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {#        <input type="text" name="comment" value="">#}
+            {{ form.as_p }}
+            <button type="submit">Отправить</button>
+        </form>
+    {% else %}
+        <p>Войдите на сайт что бы оставить комментарий</p>
+    {% endif %}
+    {% for comment in comments %}
+        <p>{{ comment.text }}</p>
+        <p>{{ comment.date }}</p>
+        <br>
+    {% endfor %}
+    Теги -
+    {% for tag in new.tags.all %}
+        <a href="{% url 'tag_detail' tag=tag.slug %}">{{ tag.title }}</a>
+    {% endfor %}
+    <br>
+{% endblock content %}
