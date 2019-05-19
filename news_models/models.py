@@ -67,6 +67,9 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
+    def get_absolute_url(self):
+        return reverse("post_detail", kwargs={"category": self.post.category.slug, "slug": self.post.slug})
+
     class Meta:
         verbose_name = "Комментарий"
         verbose_name_plural = "Комментарии"

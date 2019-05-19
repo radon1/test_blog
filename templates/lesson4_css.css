@@ -1,0 +1,29 @@
+html, body, ul, li{
+    margin: 0;
+}
+
+.wrapper{
+    max-width: 1024px;
+    margin: 0 auto;
+    height: inherit;
+}
+
+.header{
+    height: 150px;
+    background: lightcyan;
+}
+
+.menu{
+    background: fuchsia;
+    height: 55px;
+}
+
+.content{
+    background: indigo;
+    height: 450px;
+}
+
+.footer{
+    background: slateblue;
+    height: 55px;
+}

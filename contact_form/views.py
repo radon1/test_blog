@@ -2,27 +2,33 @@ from django.shortcuts import render
 
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from django.views.generic.base import View
 
 from .models import *
 from .forms import ContactForm
 
 
-class FormView(View):
-    def get(self, request):
-        form = ContactForm()
-        return render(request, 'contact_form/forms.html', {'form': form})
+# class FormView(View):
+#     def get(self, request):
+#         form = ContactForm()
+#         return render(request, 'contact_form/forms.html', {'form': form})
+#
+#     def post(self, request):
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#         # Redirect back to the same page if the data
+#         # was invalid
+#         else:
+#             return render(request, 'contact_form/forms.html', {'form': form})
+#         return redirect(request.path)
 
-    def post(self, request):
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-        # Redirect back to the same page if the data
-        # was invalid
-        else:
-            return render(request, 'contact_form/forms.html', {'form': form})
-        return redirect(request.path)
+
+class CreateFormView(CreateView):
+    model = ContactFormModel
+    form_class = ContactForm
+    template_name = 'contact_form/forms.html'
 
 
 '''

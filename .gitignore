@@ -4,3 +4,4 @@ idea
 venv
 db.sqlite3
 Blog.rar
+local_settings
