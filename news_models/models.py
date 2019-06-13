@@ -35,7 +35,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     """Статья"""
-    title = models.CharField("Заголовок", max_length=100)
+    title = models.CharField("Заголовок", max_length=150)
     image = models.ImageField("Изображение", upload_to="post/", null=True, blank=True)
     short_text = models.TextField("Превью", default='')
     text = models.TextField("Текст статьи")
